@@ -13,8 +13,20 @@ def letter_count(letters_string):
     return letters
 
 def book_report(w_count, l_count):  
+    alpha_list = []
+    for x in l_count:
+        inner_alpha_list = []
+        if x.isalpha():
+            inner_alpha_list.append(x)
+            inner_alpha_list.append(l_count[x])
+            alpha_list.append(inner_alpha_list)
+    alpha_list.sort(key = lambda x: x[1], reverse = True)
     print("--- Begin report of books/frankenstein.txt ---")
     print(f"{w_count} words found in the document")
+    print("\n")
+    for x in range(len(alpha_list)):
+        print(f"The '{alpha_list[x][0]}' character was found {alpha_list[x][1]} times")
+    print("--- End report ---")
     
 
 def main():   
